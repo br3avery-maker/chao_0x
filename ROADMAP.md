@@ -2,9 +2,10 @@
 
 ## Phase 0 — Architecture
 
-- Define system map
+- Define native account-chain / block-lattice system map
 - Define data asset manifest
 - Define index commitment model
+- Define native block types
 - Define Nostr event sketches
 - Define Android/Rust/WebView architecture
 
@@ -17,43 +18,61 @@
 - manifest generator
 - local encrypted index
 - index commitment hash
+- local account-chain event log
 - dashboard
 
-## Phase 2 — Nostr Discovery
+## Phase 2 — Native Ledger Core
+
+- account identity
+- account-chain block structure
+- signed append-only blocks
+- send/receive block model
+- asset release blocks
+- index commitment blocks
+- reward claim blocks
+- burn/stake blocks
+- basic conflict/fork detection
+
+## Phase 3 — Nostr Discovery
 
 - publish asset announcements
 - publish index commitments
 - publish availability claims
 - publish curation shelves
 - consume/search Nostr event feed
+- map Nostr events back to native account-chain blocks
 
-## Phase 3 — Base Testnet Economy
+## Phase 4 — Native Economy MVP
 
-- CHAO test token
-- release anchor contract
+- CHAO native balance model
+- release anchor block type
 - simple reward ledger
 - staking/challenge mock
-- mint static site / music / index assets
+- native mint/register static site / music / index assets
+- burn and spend mechanics
 
-## Phase 4 — Storage / Delivery
+## Phase 5 — Storage / Delivery
 
 - IPFS upload
 - Arweave publish option
 - WebRTC chunk serving
 - delivery receipts
 - mirror receipts
+- proof-of-availability challenge flow
 
-## Phase 5 — Mini-App Runtime
+## Phase 6 — Mini-App Runtime
 
 - app manifest
 - permission prompts
 - WebView mini-app loader
 - local dappstore
 - app update policy
+- mini-app blocks for publish/install/permission events
 
-## Phase 6 — Minima Branch
+## Phase 7 — Bridge / Interop Later
 
-- Minima adapter research
-- MiniDapp compatibility
-- Maxima messaging tests
-- sovereign-node mode experiments
+- optional EVM/Base bridge research
+- optional wrapped CHAO
+- optional external NFT/export anchor
+- optional Minima interoperability research
+- optional Solana or other chain adapters
