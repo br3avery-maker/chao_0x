@@ -2,52 +2,68 @@
 
 ## One-sentence architecture
 
-**chao_0x is a local-first AI-indexed data economy network using a native account-chain / block-lattice ledger where every wallet is its own node, turning user-controlled folders, readable archives, music, sites, mini-apps, datasets, and models into discoverable native data assets with built-in earn/spend/burn/stake/challenge mechanics.**
+**chao_0x is a local-first AI-indexed data economy network using a native account-chain / block-lattice ledger where every wallet is its own node, with a sovereign accounting kernel that rewards useful presence: time, effort, energy, storage, uptime, bandwidth, indexing, curation, delivery, availability, and challenge responses.**
 
 ## High-level stack
 
 ```text
-User Wallet / Node Layer
-one wallet = one account chain = one local node identity
+Apps
+wallet, music/library, publishing, curation, dashboards
         ↓
-User Data Layer
-music, fic, sites, apps, datasets, models, archives
+Web Runtime
+safe APIs for mini-apps and local UI
         ↓
-Local AI / Indexing Layer
-tags, summaries, formatting, embeddings, risk scoring
+Network
+sync, discovery, verification, challenge, relay, peer delivery
         ↓
-Manifest Layer
-hashes, metadata, mode, storage, rights/risk, economic hooks
+OS Services
+scan, index, store, serve, schedule, measure
         ↓
-Native Block-Lattice Layer
-account-chain blocks, asset blocks, index blocks, reward blocks
+Reward / Proof Kernel
+proof validation, reward claims, stake, burn, slash, challenge outcomes
         ↓
-Data Asset Layer
-release anchors, index assets, curation assets, receipts
+Data / Identity Kernel
+accounts, keys, signatures, hashes, native IDs, manifests, account-chain blocks, schemas
         ↓
-Discovery / Gossip Layer
-Nostr events, relays, store listings, reputation signals
-        ↓
-Storage / Delivery Layer
-IPFS, Arweave, Filecoin, WebRTC, BYOCloud, local peers
-        ↓
-Economy Layer
-native earn, spend, burn, stake, tip, slash, challenge
-        ↓
-App / Hub UI Layer
-Android shell, WebView mini-apps, dappstore, wallet approvals
+Device / Storage
+files, SQLite, keystore, media, battery, network, local storage
 ```
+
+## Native object prefixes
+
+```text
+chao_0x:account:...
+chao_0x:block:...
+chao_0x:asset:...
+chao_0x:index:...
+chao_0x:proof:...
+```
+
+These prefixes mark native chao objects, not random files, JSON blobs, URLs, or external-chain objects.
 
 ## Core correction
 
-Do not model this as "algorithmic mining" or as an EVM-first project.
+Do not model this as "algorithmic mining," an EVM-first project, or an app with optional rewards.
 
 Model it as:
 
 ```text
 Native block-lattice ledger
++ sovereign accounting kernel
 + useful network work
 = account-chain ownership + indexing + routing + hosting + curating + proving availability
 ```
 
-The network rewards nodes for maintaining useful knowledge and availability, not for wasting compute or routing every primitive through external contracts.
+The network rewards nodes for maintaining useful presence and useful data state, not for wasting compute or routing every primitive through external contracts.
+
+## Trust boundary
+
+```text
+Apps request work.
+OS services perform work.
+Network peers verify or challenge work.
+Reward / Proof Kernel accounts for work.
+Data / Identity Kernel defines the objects and signatures.
+```
+
+Rewards must not come from self-reported app activity alone.
