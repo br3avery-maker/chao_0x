@@ -1,13 +1,18 @@
 {
   "schema": "chao.index_commitment.v0",
   "owner": {
-    "nostr_pubkey": "npub...",
-    "evm_address": "0x..."
+    "chao_account": "chao_...",
+    "nostr_pubkey": "npub..."
   },
   "index_root": "0xabc123...",
   "entry_count": 18472,
   "updated_at": 1783290000,
   "index_mode": "private_commitment",
+  "native_block": {
+    "account": "chao_...",
+    "height": 42,
+    "block_hash": "0xblock..."
+  },
   "capabilities": [
     "proof_of_index",
     "proof_of_availability",
