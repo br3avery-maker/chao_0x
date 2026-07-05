@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "crates/chao-core"
+]
+resolver = "2"
