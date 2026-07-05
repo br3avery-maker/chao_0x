@@ -1,0 +1,28 @@
+{
+  "schema": "chao.proof.v0",
+  "proof_id": "chao_0x:proof:index:example",
+  "account": "chao_0x:account:example",
+  "kind": "proof_of_index",
+  "claim": {
+    "index_root": "0xindexroot...",
+    "entry_count": 18472,
+    "time_window": "2026-07-05T00:00:00Z/2026-07-05T01:00:00Z"
+  },
+  "evidence": {
+    "sampled_entries": [
+      "chao_0x:index:entry:1",
+      "chao_0x:index:entry:2"
+    ],
+    "challenge_id": "chao_0x:proof:challenge:example",
+    "response_hash": "sha256:..."
+  },
+  "verified_by": [
+    "chao_0x:account:peer-a",
+    "chao_0x:account:peer-b"
+  ],
+  "native_block": {
+    "account": "chao_0x:account:example",
+    "height": 42,
+    "block_hash": "sha256:block..."
+  }
+}
