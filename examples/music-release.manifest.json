@@ -1,0 +1,64 @@
+{
+  "schema": "chao.release.v0",
+  "asset_type": "music_release",
+  "title": "Example Song",
+  "version": "0.1.0",
+  "publisher": {
+    "display_name": "Example Creator",
+    "nostr_pubkey": "npub...",
+    "evm_address": "0x..."
+  },
+  "content": {
+    "sha256": "sha256:...",
+    "cid": "ipfs://bafy...",
+    "manifest_cid": "ipfs://bafy_manifest...",
+    "fingerprint": "audiofp:...",
+    "mime": "audio/mpeg",
+    "duration": 184.2,
+    "storage": [
+      {
+        "type": "ipfs",
+        "uri": "ipfs://bafy..."
+      },
+      {
+        "type": "peer_swarm",
+        "uri": "chao-peer://enabled"
+      }
+    ]
+  },
+  "ai_metadata": {
+    "genre": [
+      "folk punk",
+      "experimental"
+    ],
+    "mood": [
+      "raw",
+      "defiant"
+    ],
+    "tags": [
+      "demo",
+      "female vocal",
+      "acoustic"
+    ]
+  },
+  "risk": {
+    "mode": "creator_release",
+    "score": 0.07,
+    "notes": [
+      "self-attested original release"
+    ]
+  },
+  "release_policy": {
+    "copying": "allowed",
+    "streaming": "allowed",
+    "seeding_rewards": "enabled",
+    "derivatives": "allowed_with_lineage",
+    "delist": "ui_only"
+  },
+  "economics": {
+    "creator_bps": 8000,
+    "seeders_bps": 1000,
+    "curators_bps": 500,
+    "protocol_burn_bps": 500
+  }
+}
