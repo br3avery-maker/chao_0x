@@ -1,0 +1,22 @@
+{
+  "schema": "chao.native_block.v0",
+  "account": "chao_...",
+  "height": 12,
+  "previous": "0xprevious...",
+  "kind": "release_asset",
+  "payload": {
+    "asset_type": "music_release",
+    "title": "Example Song",
+    "manifest_cid": "ipfs://bafy_manifest...",
+    "content_hash": "sha256:...",
+    "release_mode": "creator_release",
+    "reward_policy": {
+      "creator_bps": 8000,
+      "seeders_bps": 1000,
+      "curators_bps": 500,
+      "protocol_burn_bps": 500
+    }
+  },
+  "timestamp": 1783290000,
+  "signature": "sig..."
+}
