@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chao0x.dev/schemas/chao.release.v0.schema.json",
+  "title": "chao_0x Release Manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "asset_type",
+    "title",
+    "publisher",
+    "content",
+    "release_policy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "chao.release.v0"
+    },
+    "asset_type": {
+      "type": "string",
+      "enum": [
+        "music_release",
+        "static_site",
+        "mini_app",
+        "readable_text",
+        "fanwork_index",
+        "dataset",
+        "model",
+        "game_asset",
+        "curation_asset"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "object",
+      "properties": {
+        "nostr_pubkey": {
+          "type": "string"
+        },
+        "evm_address": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "sha256": {
+          "type": "string"
+        },
+        "cid": {
+          "type": "string"
+        },
+        "manifest_cid": {
+          "type": "string"
+        },
+        "fingerprint": {
+          "type": "string"
+        },
+        "mime": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "storage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "uri"
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "ai_metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "risk": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "release_policy": {
+      "type": "object",
+      "properties": {
+        "copying": {
+          "type": "string"
+        },
+        "streaming": {
+          "type": "string"
+        },
+        "seeding_rewards": {
+          "type": "string"
+        },
+        "derivatives": {
+          "type": "string"
+        },
+        "delist": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "economics": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
