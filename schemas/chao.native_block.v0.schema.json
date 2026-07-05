@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chao0x.dev/schemas/chao.native_block.v0.schema.json",
+  "title": "chao_0x Native Account-Chain Block",
+  "type": "object",
+  "required": [
+    "schema",
+    "account",
+    "height",
+    "previous",
+    "kind",
+    "payload",
+    "signature"
+  ],
+  "properties": {
+    "schema": {
+      "const": "chao.native_block.v0"
+    },
+    "account": {
+      "type": "string"
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "previous": {
+      "type": ["string", "null"]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "open_account",
+        "send",
+        "receive",
+        "burn",
+        "stake",
+        "unstake",
+        "release_asset",
+        "update_asset_manifest",
+        "publish_index_root",
+        "availability_claim",
+        "curation_claim",
+        "delivery_receipt",
+        "challenge",
+        "challenge_response",
+        "reward_claim",
+        "representative_vote"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "timestamp": {
+      "type": "integer"
+    },
+    "signature": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
