@@ -1,0 +1,53 @@
+{
+  "schema": "chao.release.v0",
+  "asset_type": "fanwork_index",
+  "title": "Example Fandom Reading Shelf",
+  "version": "0.1.0",
+  "publisher": {
+    "display_name": "Example Curator",
+    "nostr_pubkey": "npub...",
+    "evm_address": "0x..."
+  },
+  "content": {
+    "sha256": "sha256:...",
+    "cid": "ipfs://bafy_index...",
+    "manifest_cid": "ipfs://bafy_manifest...",
+    "mime": "application/json",
+    "storage": [
+      {
+        "type": "ipfs",
+        "uri": "ipfs://bafy_index..."
+      }
+    ]
+  },
+  "ai_metadata": {
+    "index_type": "readable_library",
+    "contains_full_text": false,
+    "tags": [
+      "fanfiction",
+      "rec-list",
+      "trope-graph",
+      "index-only"
+    ],
+    "summary": "AI-tagged index/curation graph for already-readable fanworks."
+  },
+  "risk": {
+    "mode": "index_only",
+    "score": 0.35,
+    "notes": [
+      "metadata/links/curation only; no underlying canon ownership claim"
+    ]
+  },
+  "release_policy": {
+    "copying": "metadata_only",
+    "streaming": "not_applicable",
+    "seeding_rewards": "index_only",
+    "derivatives": "curation_derivatives_allowed",
+    "delist": "ui_only"
+  },
+  "economics": {
+    "curator_bps": 7000,
+    "indexer_bps": 2000,
+    "protocol_burn_bps": 1000
+  }
+}
