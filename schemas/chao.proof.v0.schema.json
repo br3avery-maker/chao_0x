@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chao0x.dev/schemas/chao.proof.v0.schema.json",
+  "title": "chao_0x Proof Object",
+  "type": "object",
+  "required": [
+    "schema",
+    "proof_id",
+    "account",
+    "kind",
+    "claim",
+    "evidence"
+  ],
+  "properties": {
+    "schema": {
+      "const": "chao.proof.v0"
+    },
+    "proof_id": {
+      "type": "string"
+    },
+    "account": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "proof_of_storage",
+        "proof_of_uptime",
+        "proof_of_delivery",
+        "proof_of_index",
+        "proof_of_curation",
+        "proof_of_energy",
+        "proof_of_effort",
+        "proof_of_availability",
+        "proof_of_challenge_response"
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "verified_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "native_block": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
