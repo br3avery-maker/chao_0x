@@ -17,10 +17,10 @@
     "owner": {
       "type": "object",
       "properties": {
-        "nostr_pubkey": {
+        "chao_account": {
           "type": "string"
         },
-        "evm_address": {
+        "nostr_pubkey": {
           "type": "string"
         }
       },
@@ -43,6 +43,21 @@
         "public_index",
         "hybrid"
       ]
+    },
+    "native_block": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "block_hash": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
     },
     "capabilities": {
       "type": "array",
