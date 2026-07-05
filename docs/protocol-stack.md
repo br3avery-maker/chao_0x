@@ -1,5 +1,31 @@
 # Protocol Stack
 
+## Native chao_0x Block-Lattice
+
+Role: canonical ledger, economy, native assets, staking, burns, rewards, and challenge outcomes.
+
+chao_0x is intended to be its own network:
+
+```text
+wallet = account = account chain = node identity
+```
+
+Use the native ledger for:
+
+- CHAO token/account balances
+- send/receive blocks
+- release anchors
+- native data assets
+- staking
+- burn mechanics
+- reward routing
+- mini-app fees
+- bounties
+- curation receipts
+- seeder receipts
+- mirror receipts
+- challenge/slash events
+
 ## Nostr
 
 Role: signed discovery and metadata gossip.
@@ -24,35 +50,33 @@ Do not use Nostr for:
 - consensus
 - the primary token economy
 
-## Base / EVM
+## External Chains
 
-Role: first public economy layer.
+Role: optional bridge/export layer only.
 
-Use Base/EVM for:
+External chains such as Ethereum, Base, Solana, or other networks may later support:
 
-- CHAO token
-- NFT/release anchors
-- staking
-- burn mechanics
-- liquidity pools
-- reward contracts
-- mini-app fees
-- bounties
-- creator drops
+- wrapped CHAO
+- exported release anchors
+- bridge receipts
+- marketplace mirrors
+- liquidity outside the native network
+
+They are not the base economy layer.
 
 ## Minima
 
-Role: sovereign-node branch.
+Role: inspiration, comparison, or possible interoperability branch.
 
-Use Minima for:
+Use Minima research for:
 
-- mobile full-node experiments
-- MiniDapp compatibility
-- P2P value transfer
-- Maxima messaging
-- local sovereign mode
+- mobile-node lessons
+- MiniDapp comparison
+- P2P value-transfer comparison
+- Maxima-style messaging ideas
+- sovereign-device design references
 
-Minima should not carry the entire system at MVP stage.
+Minima should not be treated as the canonical chao_0x ledger unless explicitly re-scoped.
 
 ## IPFS / Arweave / Filecoin / BYOCloud
 
