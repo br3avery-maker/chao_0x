@@ -1,0 +1,17 @@
+{
+  "schema": "chao.index_commitment.v0",
+  "owner": {
+    "nostr_pubkey": "npub...",
+    "evm_address": "0x..."
+  },
+  "index_root": "0xabc123...",
+  "entry_count": 18472,
+  "updated_at": 1783290000,
+  "index_mode": "private_commitment",
+  "capabilities": [
+    "proof_of_index",
+    "proof_of_availability",
+    "proof_of_routing",
+    "proof_of_curation"
+  ]
+}
