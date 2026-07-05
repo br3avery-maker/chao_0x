@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chao0x.dev/schemas/chao.index_commitment.v0.schema.json",
+  "title": "chao_0x Index Commitment",
+  "type": "object",
+  "required": [
+    "schema",
+    "owner",
+    "index_root",
+    "entry_count",
+    "updated_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "chao.index_commitment.v0"
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "nostr_pubkey": {
+          "type": "string"
+        },
+        "evm_address": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "index_root": {
+      "type": "string"
+    },
+    "entry_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updated_at": {
+      "type": "integer"
+    },
+    "index_mode": {
+      "type": "string",
+      "enum": [
+        "private_commitment",
+        "public_index",
+        "hybrid"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
