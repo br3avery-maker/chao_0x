@@ -103,3 +103,61 @@ Network sees index root, entry count, timestamp, and proof responses.
 - Prove your index is not stale.
 
 Success earns reward. Failure lowers reputation or triggers slashing if staked.
+
+
+## Local commitment profile: `chao-index-merkle-v0`
+
+`chao-core::index` implements an **ordered membership commitment**, not an
+availability, freshness, ownership, signature, or reward proof. This is an
+experimental local profile; it is not a claim that the network or other
+implementations have adopted it. A verifier must obtain the root and algorithm
+from a trusted, authenticated commitment and reject unknown or absent algorithm
+identifiers for this profile. The commitment itself is unsigned. Callers are
+responsible for validating the owner object and protecting their signing keys.
+
+### Exact bytes
+
+Each entry is encoded as the ASCII bytes `chao.index.entry.v0` followed by a
+zero byte, then these fields in order: `asset_id`, `content_hash`,
+`manifest_cid`, `asset_type`, `mode`, `updated_at`. Each string is its exact
+UTF-8 bytes prefixed by its byte length as an unsigned 64-bit big-endian
+integer. Strings are not Unicode-normalized. `manifest_cid` is a single zero
+byte for `None`, or a byte `01` followed by the length-prefixed string for
+`Some` (including an empty string). `updated_at` is an unsigned 64-bit
+big-endian integer. No validation or interpretation of identifiers is implied.
+
+- A leaf is `SHA256(00 || entry_bytes)`.
+- An internal node is `SHA256(01 || left || right)`, using raw 32-byte hashes.
+  When a level has an odd node count, its final node is duplicated.
+- The internal root for an empty index is `SHA256(02)`; for a one-entry index
+  it is that entry's leaf.
+- The published root is `SHA256(03 || count_u64_be || internal_root)`.
+  The count binding distinguishes an odd tree from one containing an extra
+  duplicate. Hash strings use `sha256:` followed by 64 lowercase hexadecimal
+  digits.
+
+Entries are committed in caller-supplied order; no implicit sorting or
+content deduplication occurs. Identical entries at different positions remain
+separate occurrences. A proof contains the zero-based leaf index, entry count,
+and sibling hashes from leaf to root. The verifier checks the index, count,
+proof depth, hash encoding, and the duplicated sibling at an odd boundary;
+extra or missing siblings fail. Callers must compare the root against a
+trusted commitment and ensure its `entry_count` equals the proof count. The
+older `canonical_entry_hash` function is a separate legacy JSON hash and is
+**not** a leaf in this profile.
+
+The fixed vectors in `crates/chao-core/tests/index_commitment.rs` include
+Unicode, absent and present optional values, empty input, odd trees, and
+malformed proofs. Generate the checked-in sample with:
+
+```sh
+cargo run -q -p chao-core --example index_commitment
+```
+
+The sample `examples/index-commitment-generated.json` was generated from two
+synthetic entries and can be validated against the existing commitment schema.
+No entry text is included in that object. Roots and membership proofs still
+leak information: low-entropy entries can be guessed and tested, and a proof
+reveals the entry supplied with it, its position and the count. This profile
+provides no encryption or hiding guarantee. Do not publish private metadata,
+owner fields, proofs, or roots without considering those disclosures.

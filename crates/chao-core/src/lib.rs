@@ -29,6 +29,7 @@ pub struct IndexEntry {
     pub updated_at: u64,
 }
 
+/// Legacy JSON hash; the versioned Merkle profile uses `index::entry_leaf_hash` instead.
 pub fn canonical_entry_hash(entry: &IndexEntry) -> Result<String, serde_json::Error> {
     let encoded = serde_json::to_vec(entry)?;
     let fingerprint = sha256_bytes(&encoded);
@@ -103,3 +104,5 @@ mod tests {
         assert!(hash.starts_with("sha256:"));
     }
 }
+
+pub mod index;

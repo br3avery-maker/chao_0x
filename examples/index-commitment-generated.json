@@ -1,0 +1,10 @@
+{
+  "schema": "chao.index_commitment.v0",
+  "algorithm": "chao-index-merkle-v0",
+  "owner": {
+    "chao_account": "chao_example"
+  },
+  "index_root": "sha256:2d75e4d3ffde01d0969df163e70011fa03afd429e7cbbc99f4f3bb82b655ad2c",
+  "entry_count": 2,
+  "updated_at": 44
+}
